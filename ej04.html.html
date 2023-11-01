@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reloj Analógico</title>
+    <style>
+        /* Estilo para el reloj analógico */
+        #reloj {
+            width: 360px;
+            height: 360px;
+            background: url('https://w7.pngwing.com/pngs/539/177/png-transparent-clock-face-world-clock-clock-template-angle-white-thumbnail.png') no-repeat;
+            position: relative;
+        }
+        #hora, #minuto, #segundo {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: #000;
+            top: 50%;
+            transform-origin: 100%;
+            transform: translateY(-50%);
+        }
+        #minuto {
+            height: 4px;
+        }
+        #segundo {
+            background: red;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="reloj">
+        <div id="hora"></div>
+        <div id="minuto"></div>
+        <div id="segundo"></div>
+    </div>
+
+    <script>
+        function actualizarReloj() {
+            const reloj = document.getElementById('reloj');
+            const hora = document.getElementById('hora');
+            const minuto = document.getElementById('minuto');
+            const segundo = document.getElementById('segundo');
+
+            const ahora = new Date();
+            const horas = ahora.getHours();
+            const minutos = ahora.getMinutes();
+            const segundos = ahora.getSeconds();
+
+            const horaGrados = (horas % 12) * 360 / 12 + (minutos * 360 / 60) / 12;
+            const minutoGrados = (minutos * 360 / 60) + (segundos * 360 / 60) / 60;
+            const segundoGrados = (segundos * 360 / 60);
+
+            hora.style.transform = `rotate(${horaGrados}deg)`;
+            minuto.style.transform = `rotate(${minutoGrados}deg)`;
+            segundo.style.transform = `rotate(${segundoGrados}deg)`;
+
+            setTimeout(actualizarReloj, 1000); // Actualizar cada segundo
+        }
+
+        actualizarReloj(); // Iniciar la actualización del reloj
+    </script>
+</body>
+</html>
+
+</html>

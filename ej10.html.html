@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego de Preguntas y Respuestas</title>
+    <style>
+        .question {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juego de Preguntas y Respuestas</h1>
+
+    <div id="quiz">
+        <div class="question">
+            <h3>Pregunta 1: ¿Cuál es la capital de Francia?</h3>
+            <input type="radio" name="q1" value="Paris"> Paris<br>
+            <input type="radio" name="q1" value="Londres"> Londres<br>
+            <input type="radio" name="q1" value="Roma"> Roma<br>
+        </div>
+
+        <div class="question">
+            <h3>Pregunta 2: ¿Cuál es el río más largo del mundo?</h3>
+            <input type="radio" name="q2" value="Nilo"> Nilo<br>
+            <input type="radio" name="q2" value="Amazonas"> Amazonas<br>
+            <input type="radio" name="q2" value="Misisipi"> Misisipi<br>
+        </div>
+
+        <div class="question">
+            <h3>Pregunta 3: ¿Quién pintó la Mona Lisa?</h3>
+            <input type="radio" name="q3" value="Van Gogh"> Van Gogh<br>
+            <input type="radio" name="q3" value="Leonardo da Vinci"> Leonardo da Vinci<br>
+            <input type="radio" name="q3" value="Pablo Picasso"> Pablo Picasso<br>
+        </div>
+
+        <button onclick="calcularPuntuacion()">Finalizar</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularPuntuacion() {
+            var preguntas = document.getElementsByClassName('question');
+            var puntuacion = 0;
+
+            for (var i = 0; i < preguntas.length; i++) {
+                var respuestas = preguntas[i].getElementsByTagName('input');
+                var respuestaCorrecta = "";
+
+                for (var j = 0; j < respuestas.length; j++) {
+                    if (respuestas[j].checked) {
+                        if (respuestas[j].value === "Paris" || respuestas[j].value === "Amazonas" || respuestas[j].value === "Leonardo da Vinci") {
+                            puntuacion++;
+                        }
+                    }
+                }
+            }
+
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = "Tu puntuación es: " + puntuacion + " de " + preguntas.length;
+        }
+    </script>
+</body>
+</html>
+

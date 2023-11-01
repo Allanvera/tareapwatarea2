@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrusel de Imágenes</title>
+    <style>
+        /* Estilos para el carrusel */
+        .carousel {
+            width: 60%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: block;
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <button class="prev" onclick="cambiarImagen(-1)">❮ Anterior</button>
+        <button class="next" onclick="cambiarImagen(1)">Siguiente ❯</button>
+        <img class="slide" src="https://www.semana.com/resizer/qWFDUVTE6z9xLi4bBwv1pcDvG-U=/fit-in/768x0/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/JWYU7BYMDNGKBMYPCOLVFUX4M4.png">
+        <img class="slide" src="https://www.semana.com/resizer/--7ESJNg7TauRvo64aKDAWXpLME=/fit-in/1280x0/smart/filters:format(jpg):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/semana/LNVRQKAPZFFL3NOIQOIPRHVSFA.png">
+        <img class="slide" src="https://www.eltiempo.com/files/amp_galeria/uploads/2023/02/07/63e317fe4f858.jpeg">
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        mostrarSlides();
+
+        function cambiarImagen(n) {
+            mostrarSlides(slideIndex += n);
+        }
+
+        function mostrarSlides() {
+            var slides = document.getElementsByClassName("slide");
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex].style.display = "block";
+            slideIndex++;
+
+            setTimeout(mostrarSlides, 3000); // Cambiar cada 3 segundos
+        }
+    </script>
+</body>
+</html>

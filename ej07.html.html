@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menú de Navegación Desplegable</title>
+  <style>
+    /* Estilos para el menú */
+    .submenu {
+      display: none;
+    }
+    .menu-item:hover .submenu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li class="menu-item">Tecnologia
+      <ul class="submenu">
+        <li>Tecnología de la Educación</li>
+        <li>Tecnología de la Información</li>
+        <li>Tecnología Energética</li>
+      </ul>
+    </li>
+    <li class="menu-item">Inteligencia Atificial
+      <ul class="submenu">
+        <li>Redes Neuronales Artificiales</li>
+        <li>Robótica</li>
+        <li>Visión por Computadora</li>
+      </ul>
+    </li>
+    <li class="menu-item">Lenguaje de programación 
+     <ul class="submenu">
+      <li>Desarrollo de Software</li>
+      <li>Aplicaciones Web</li>
+      <li>Programación en la Nube</li>
+  </ul>
+</nav>
+
+<script>
+  // JavaScript para mostrar y ocultar submenús
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const submenu = item.querySelector('.submenu');
+      if (submenu) {
+        submenu.classList.toggle('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

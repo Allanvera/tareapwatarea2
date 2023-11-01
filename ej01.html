@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cambio de Estilo al Clic</title>
+    <style>
+        /* Estilo inicial del elemento HTML */
+        #elemento {
+            width: 200px;
+            height: 100px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+
+        /* Estilo cuando se cambie el fondo */
+        #elemento.cambio-color {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="cambiarColorFondo()">Cambiar Color de Fondo</button>
+    <div id="elemento">Haz clic en el botón</div>
+
+    <script>
+        function cambiarColorFondo() {
+            var elemento = document.getElementById("elemento");
+            elemento.classList.add("cambio-color");
+        }
+    </script>
+</body>
+</html>

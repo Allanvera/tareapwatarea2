@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cambio de Imagen al Pasar el Ratón</title>
+    <style>
+        /* Estilo de la imagen */
+        #imagen {
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        /* Estilo de la imagen al pasar el ratón sobre ella */
+        #imagen:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Imagen inicial -->
+    <img id="imagen" src="https://www.tooltyp.com/wp-content/uploads/2014/10/1900x920-8-beneficios-de-usar-imagenes-en-nuestros-sitios-web.jpg" alt="Imagen 1" onmouseover="cambiarImagen()" onmouseout="restaurarImagen()">
+
+    <script>
+        // Función para cambiar la imagen al pasar el ratón
+        function cambiarImagen() {
+            document.getElementById("imagen").src = "https://images.unsplash.com/photo-1601625463687-25541fb72f62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80";
+        }
+
+        // Función para restaurar la imagen cuando el ratón sale de la imagen
+        function restaurarImagen() {
+            document.getElementById("imagen").src = "https://www.tooltyp.com/wp-content/uploads/2014/10/1900x920-8-beneficios-de-usar-imagenes-en-nuestros-sitios-web.jpg";
+        }
+    </script>
+</body>
+</html>

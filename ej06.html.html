@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tareas Interactiva</title>
+    <style>
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de Tareas</h2>
+    <input type="text" id="taskInput" placeholder="Agregar una nueva tarea">
+    <button onclick="agregarTarea()">Agregar</button>
+    <ul id="taskList" class="task-list"></ul>
+
+    <script>
+        // Función para agregar una nueva tarea
+        function agregarTarea() {
+            var tarea = document.getElementById("taskInput").value;
+            if (tarea === "") {
+                alert("Por favor, ingresa una tarea.");
+                return;
+            }
+
+            var lista = document.getElementById("taskList");
+            var nuevaTarea = document.createElement("li");
+            nuevaTarea.innerText = tarea;
+
+            // Agregar botón de eliminar a la tarea
+            var botonEliminar = document.createElement("button");
+            botonEliminar.innerText = "Eliminar";
+            botonEliminar.onclick = function() {
+                lista.removeChild(nuevaTarea);
+            };
+
+            nuevaTarea.appendChild(botonEliminar);
+            lista.appendChild(nuevaTarea);
+            document.getElementById("taskInput").value = ""; // Limpiar el campo de texto después de agregar la tarea
+        }
+    </script>
+</body>
+</html>
